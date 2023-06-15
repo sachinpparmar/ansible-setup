@@ -1,0 +1,10 @@
+---
+- hosts: demo     # demo is the group
+  user: ansible   # ansible is the user
+  become: yes     # sudo privilege 
+  connection: ssh
+  tasks:
+    - name: install apache
+      apt:
+        name: apache2
+        state: present
