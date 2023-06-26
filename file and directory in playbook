@@ -1,1 +1,19 @@
+---
+- hosts: demo     # demo is the group
+  user: ansible   # ansible is the user
+  become: yes     # sudo privilege 
+  connection: ssh
+  tasks:
+    - name: create file
+      file: path=/home/ubuntu/file.txt state=touch      ##use path where we want to create 
 
+ ---------------------------------------------------------------------------------
+
+---
+- hosts: demo     # demo is the group
+  user: ansible   # ansible is the user
+  become: yes     # sudo privilege 
+  connection: ssh
+  tasks:
+    - name: create dir
+      file: path=/home/ubuntu/ansible state=directory mode=775 owner=ubuntu group=ubuntu    ##use path where we want to create
