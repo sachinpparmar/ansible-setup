@@ -8,3 +8,21 @@
       apt:
         name: apache2
         state: present
+------------------------------------------------------------
+
+##for loop concept 
+
+---
+- hosts: demo     # demo is the group
+  user: ansible   # ansible is the user
+  become: yes     # sudo privilege 
+  connection: ssh
+  tasks:
+    - name: install apache
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+       - vim
+       - git
+       - tree
