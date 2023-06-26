@@ -30,3 +30,21 @@
     - name: create user
       user: name=ansible password=ansible group=ansible  state=present
 
+---------------------------------------------------------
+## for copy 
+---
+- hosts: demo     # demo is the group
+  user: ansible   # ansible is the user
+  become: yes     # sudo privilege 
+  connection: ssh
+  tasks:
+    - name: Copy file
+      copy:
+        src: /path/to/source/file.txt            ##have to provide src
+        dest: /path/to/destination/file.txt      #have to provide destination  
+        owner: your_user                         ## we can give owner name
+        group: your_group                        ## we can give group name 
+        mode: 0644                               ##for permission 
+----------------------------------------------------------------------
+
+
